@@ -17,10 +17,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet
+from .views import UserViewSet, TeamViewSet, ActivityViewSet, LeaderboardViewSet, WorkoutViewSet, ApiRootView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', ApiRootView.as_view(), name='api-root'),
     path('api/users/', UserViewSet.as_view(), name='users'),
     path('api/teams/', TeamViewSet.as_view(), name='teams'),
     path('api/activities/', ActivityViewSet.as_view(), name='activities'),
